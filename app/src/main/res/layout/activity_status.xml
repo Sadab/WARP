@@ -57,8 +57,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        timer:initialColor="#E23367"
-        timer:progressColor="#E23367"
+        timer:initialColor="#F0662B"
+        timer:progressColor="#DC1D83"
         timer:radius="35dp"
         timer:startingPoint="270"
         timer:strokeWidth="2dp" />
