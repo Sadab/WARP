@@ -20,7 +20,7 @@
         app:layout_constraintTop_toBottomOf="@+id/startBtn"
         app:layout_constraintVertical_bias="1.0" />
 
-    <TextView
+    <EditText
         android:id="@+id/textView8"
         android:layout_width="345dp"
         android:layout_height="40dp"
@@ -34,13 +34,14 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.478" />
+        app:layout_constraintVertical_bias="0.478"
+        android:textCursorDrawable="@null"
+        android:gravity="center" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_marginStart="22dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="239dp"
@@ -56,7 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView7"
         app:layout_constraintVertical_bias="1.0" />
 
-    <TextView
+    <EditText
         android:id="@+id/textView7"
         android:layout_width="345dp"
         android:layout_height="40dp"
@@ -68,7 +69,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        android:textCursorDrawable="@null"
+        android:gravity="center" />
 
     <TextView
         android:id="@+id/textView6"
@@ -99,9 +102,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/arrow" />
+        app:srcCompat="@drawable/ic_arrow_left" />
 
-    <TextView
+    <EditText
         android:id="@+id/textView5"
         android:layout_width="345dp"
         android:layout_height="40dp"
@@ -114,7 +117,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        android:textCursorDrawable="@null"
+        android:gravity="center" />
 
     <TextView
         android:id="@+id/textView4"
@@ -135,10 +140,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="150dp"
+    <Button
+        android:id="@+id/saveBtn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="SAVE"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/buttonshape"
+        android:fontFamily="@font/rubik_medium"
         android:layout_marginStart="131dp"
         android:layout_marginTop="68dp"
         android:layout_marginEnd="131dp"
@@ -148,8 +159,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/save" />
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

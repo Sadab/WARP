@@ -17,7 +17,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/startBtn"
+        app:layout_constraintTop_toBottomOf="@+id/settingsBtn"
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
@@ -30,7 +30,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.273"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/ic_logo" />
 
     <TextView
         android:id="@+id/textView2"
@@ -41,21 +41,25 @@
         android:text="In order to use this app you have to config it first!"
         android:textColor="#E23367"
         android:textSize="32sp"
-        app:layout_constraintBottom_toTopOf="@+id/startBtn"
+        app:layout_constraintBottom_toTopOf="@+id/settingsBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <ImageView
-        android:id="@+id/startBtn"
+    <Button
+        android:id="@+id/settingsBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/buttonshape"
+        android:fontFamily="@font/rubik_medium"
+        android:text="SETTINGS"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.284"
-        app:srcCompat="@drawable/settings" />
+        app:layout_constraintVertical_bias="0.284" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -71,5 +75,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.272"
-        app:srcCompat="@drawable/settings" />
+        app:srcCompat="@drawable/ic_settings" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

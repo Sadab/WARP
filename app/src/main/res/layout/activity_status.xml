@@ -25,18 +25,18 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="125dp"
+        android:layout_marginBottom="145dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.273"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/ic_logo" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="250dp"
-        android:layout_height="57dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="200dp"
         android:fontFamily="@font/rubik"
         android:gravity="center"
@@ -51,16 +51,32 @@
 
     <io.github.krtkush.lineartimer.LinearTimerView
         android:id="@+id/timer"
-        timer:radius="20dp"
-        timer:strokeWidth="3dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/startBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        timer:initialColor="#E23367"
+        timer:progressColor="#E23367"
+        timer:radius="35dp"
+        timer:startingPoint="270"
+        timer:strokeWidth="2dp" />
 
-    <ImageView
+    <TextView
+        android:id="@+id/timerTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik_medium"
+        android:text=""
+        android:textColor="#E23367"
+        android:textSize="48dp"
+        app:layout_constraintBottom_toBottomOf="@+id/timer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/timer" />
+
+    <Button
         android:id="@+id/startBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -69,21 +85,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.781"
-        app:srcCompat="@drawable/start" />
+        android:text="START"
+        android:textColor="#FFFFFF"
+        android:textSize="18dp"
+        android:fontFamily="@font/rubik_medium"
+        android:background="@drawable/buttonshape"
+        android:textStyle="bold" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/settingIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="305dp"
-        android:layout_marginTop="22dp"
         android:layout_marginEnd="22dp"
         android:layout_marginBottom="113dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.83"
+        app:layout_constraintHorizontal_bias="0.938"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.272"
-        app:srcCompat="@drawable/settingsicon" />
+        app:layout_constraintVertical_bias="0.044"
+        app:srcCompat="@drawable/ic_settings" />
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
