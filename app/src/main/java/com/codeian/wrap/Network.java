@@ -24,8 +24,11 @@ public class Network {
 
         Request request = new Request.Builder()
                 .url(url)
-                .header("Accept", "application/json")
-                .header("Content-Type", "application/json")
+                .header("Content-Type", "application/json; charset=UTF-8")
+                .header("Host", "api.cloudflareclient.com")
+                .header("Connection", "Keep-Alive")
+                .header("Accept-Encoding", "gzip")
+                .header("User-Agent", "okhttp/3.12.1")
                 .build();
 
 //        Response response = client.newCall(request).execute();
