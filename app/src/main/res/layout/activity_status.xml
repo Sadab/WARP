@@ -7,20 +7,6 @@
     xmlns:timer="http://schemas.android.com/apk/res-auto"
     tools:context=".HomeActivity">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="190dp"
-        android:layout_marginBottom="16dp"
-        android:text="Powered by common people"
-        android:textColor="#E23367"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/startBtn"
-        app:layout_constraintVertical_bias="1.0" />
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
@@ -34,20 +20,18 @@
         app:srcCompat="@drawable/ic_logo" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/totalGB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="200dp"
         android:fontFamily="@font/rubik"
         android:gravity="center"
         android:text="100GB Zapped"
+        android:layout_marginTop="50dp"
         android:textColor="#E23367"
         android:textSize="32sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.518" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <io.github.krtkush.lineartimer.LinearTimerView
         android:id="@+id/timer"
@@ -56,9 +40,9 @@
         app:layout_constraintBottom_toTopOf="@+id/startBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        timer:initialColor="#F0662B"
-        timer:progressColor="#DC1D83"
+        app:layout_constraintTop_toBottomOf="@+id/totalGB"
+        timer:initialColor="#f17a37"
+        timer:progressColor="#ed1f53"
         timer:radius="35dp"
         timer:startingPoint="270"
         timer:strokeWidth="2dp" />
@@ -68,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/rubik_medium"
-        android:text=""
+        android:text="00s"
         android:textColor="#E23367"
         android:textSize="48dp"
         app:layout_constraintBottom_toBottomOf="@+id/timer"
@@ -83,7 +67,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/timer"
         app:layout_constraintVertical_bias="0.781"
         android:text="START"
         android:textColor="#FFFFFF"
@@ -108,6 +92,19 @@
         app:srcCompat="@drawable/ic_settings" />
 
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="16dp"
+        android:text="Powered by common people"
+        android:textColor="#E23367"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startBtn"
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

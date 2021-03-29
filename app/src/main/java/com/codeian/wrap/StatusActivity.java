@@ -2,7 +2,9 @@ package com.codeian.wrap;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -24,14 +27,25 @@ public class StatusActivity extends AppCompatActivity implements LinearTimer.Tim
     Button startBtn;
     TextView timeRemaining;
     ImageView settingIcon;
-    Random random;
+
+    SharedPreferences sharedPreferences;
+    public static final String deviceId =  "deviceId";
+    public static final String interval =  "interval";
+    public static final String target =  "target";
+
+    String id,delay,amount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_status);
+        sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
 
-        long duration = 10 * 1000;
+        id = sharedPreferences.getString(deviceId, "");
+        delay = sharedPreferences.getString(interval, "30");
+        amount = sharedPreferences.getString(target, "");
+
+        long duration = Integer.parseInt(delay) * 1000;
         linearTimerView = (LinearTimerView) findViewById(R.id.timer);
         startBtn = findViewById(R.id.startBtn);
         timeRemaining = findViewById(R.id.timerTxt);
@@ -45,24 +59,19 @@ public class StatusActivity extends AppCompatActivity implements LinearTimer.Tim
                 .build();
 
         // Start the timer.
-        findViewById(R.id.startBtn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    linearTimer.startTimer();
-                } catch (IllegalStateException e) {
-                    Toast.makeText(StatusActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
-                }
-
+        findViewById(R.id.startBtn).setOnClickListener(view -> {
+            try {
+                new Network().postRequest(id);
+                linearTimer.startTimer();
+            } catch (IllegalStateException | IOException e) {
+                Toast.makeText(StatusActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
             }
+
         });
 
-        settingIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(StatusActivity.this, SettingsActivity.class);
-                startActivity(intent);
-            }
+        settingIcon.setOnClickListener(view -> {
+            Intent intent = new Intent(StatusActivity.this, SettingsActivity.class);
+            startActivity(intent);
         });
 
     }
@@ -75,7 +84,7 @@ public class StatusActivity extends AppCompatActivity implements LinearTimer.Tim
 
     @Override
     public void timerTick(long tickUpdateInMillis) {
-        Log.i("Time left", String.valueOf(tickUpdateInMillis));
+        //Log.i("Time left", String.valueOf(tickUpdateInMillis));
         String formattedTime = String.format("%02d",
                 TimeUnit.MILLISECONDS.toSeconds(tickUpdateInMillis)
                         - TimeUnit.MINUTES
@@ -86,33 +95,9 @@ public class StatusActivity extends AppCompatActivity implements LinearTimer.Tim
 
     @Override
     public void onTimerReset() {
-        timeRemaining.setText("");
+        timeRemaining.setText(delay+"s");
         startBtn.setEnabled(true);
     }
-
-    private String generateUniqueChar(int len){
-        String chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        random = new Random();
-        String re = "";
-
-        while (re.length() < len) {
-            re += chars.charAt(random.nextInt(chars.length() - 1));
-        }
-        return re;
-    }
-
-    private String generateDigit(int len){
-        random = new Random();
-        String re = "";
-
-        while (re.length() < len){
-            re += random.nextInt(10);
-        }
-        return re;
-
-    }
-
-
 }
 
 
