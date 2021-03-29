@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import io.github.krtkush.lineartimer.LinearTimer;
@@ -23,6 +24,8 @@ public class StatusActivity extends AppCompatActivity implements LinearTimer.Tim
     Button startBtn;
     TextView timeRemaining;
     ImageView settingIcon;
+    Random random;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +64,7 @@ public class StatusActivity extends AppCompatActivity implements LinearTimer.Tim
                 startActivity(intent);
             }
         });
+
     }
 
     @Override
@@ -85,6 +89,30 @@ public class StatusActivity extends AppCompatActivity implements LinearTimer.Tim
         timeRemaining.setText("");
         startBtn.setEnabled(true);
     }
+
+    private String generateUniqueChar(int len){
+        String chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        random = new Random();
+        String re = "";
+
+        while (re.length() < len) {
+            re += chars.charAt(random.nextInt(chars.length() - 1));
+        }
+        return re;
+    }
+
+    private String generateDigit(int len){
+        random = new Random();
+        String re = "";
+
+        while (re.length() < len){
+            re += random.nextInt(10);
+        }
+        return re;
+
+    }
+
+
 }
 
 

@@ -38,4 +38,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     implementation 'com.github.krtkush:LinearTimer:v2.1.1'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
 }
