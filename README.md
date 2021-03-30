@@ -34,6 +34,7 @@
     </ul>
   </li>
   <li><a href="#usage">Usage</a></li>
+  <li><a href="#debug">Debug</a></li>
   <li><a href="#license">License</a></li>
   <li><a href="#contact">Contact</a></li>
 </ol>
@@ -59,13 +60,13 @@ You have to install *WARP - by cloudflare* to get benefited from this app. We re
 
 ### Installation
 
-1. Download latest release apk from here.
+1. Download latest release apk from <a href="https://github.com/Sadab/WARP/releases">here</a>.
 2. Install the apk
 
 <br />
 <br />
 
-<!-- USAGE EXAMPLES -->
+<!-- USAGE -->
 ## Usage
 
 You will need **ID** from "WARP". Follow this to get the id:
@@ -81,7 +82,7 @@ You have to set client ID, delay & target data amount. Finally save and hit star
 <br />
 <br />
 
-<!-- USAGE EXAMPLES -->
+<!-- DEBUG -->
 ## Debug
 
 In some cases added data may not show in app immediately. You have to follow this procedure to see the chages.
