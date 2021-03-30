@@ -24,46 +24,6 @@ public class Network {
     public static final String target =  "target";
     String id,delay,amount;
 
-    public void getHttpResponse() throws IOException {
-
-        String rand_num = helper.generateDigit(3);
-        String install_ID = helper.generateUniqueChar(22);
-        String fcm_token = helper.generateUniqueChar(134);
-        String rand_key = helper.generateUniqueChar(43);
-
-        String url = "https://api.cloudflareclient.com/v0a"+rand_num+"/reg";
-
-        OkHttpClient client = new OkHttpClient();
-
-        Request request = new Request.Builder()
-                .url(url)
-                .header("Content-Type", "application/json; charset=UTF-8")
-                .header("Host", "api.cloudflareclient.com")
-                .header("Connection", "Keep-Alive")
-                .header("Accept-Encoding", "gzip")
-                .header("User-Agent", "okhttp/3.12.1")
-                .build();
-
-//        Response response = client.newCall(request).execute();
-//        Log.e(TAG, response.body().string());
-
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                String mMessage = e.getMessage().toString();
-                Log.w("failure Response", mMessage);
-                //call.cancel();
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-
-                String mMessage = response.body().string();
-                Log.e("TAG", mMessage);
-            }
-        });
-    }
-
     public void postRequest(String id) throws IOException {
 
         String rand_num = helper.generateDigit(3);

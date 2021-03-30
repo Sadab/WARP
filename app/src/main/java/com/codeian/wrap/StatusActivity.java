@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -25,8 +27,10 @@ public class StatusActivity extends AppCompatActivity implements LinearTimer.Tim
     LinearTimerView linearTimerView;
     LinearTimer linearTimer;
     Button startBtn;
-    TextView timeRemaining;
+    TextView timeRemaining, totalGB;
     ImageView settingIcon;
+    Handler handler = new Handler();
+    Runnable runnable;
 
     SharedPreferences sharedPreferences;
     public static final String deviceId =  "deviceId";
@@ -34,6 +38,7 @@ public class StatusActivity extends AppCompatActivity implements LinearTimer.Tim
     public static final String target =  "target";
 
     String id,delay,amount;
+    int zapped;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +55,9 @@ public class StatusActivity extends AppCompatActivity implements LinearTimer.Tim
         startBtn = findViewById(R.id.startBtn);
         timeRemaining = findViewById(R.id.timerTxt);
         settingIcon = findViewById(R.id.settingIcon);
+        totalGB = findViewById(R.id.totalGB);
+
+        timeRemaining.setText(delay + "s");
 
         linearTimer = new LinearTimer.Builder()
                 .linearTimerView(linearTimerView)
@@ -60,25 +68,43 @@ public class StatusActivity extends AppCompatActivity implements LinearTimer.Tim
 
         // Start the timer.
         findViewById(R.id.startBtn).setOnClickListener(view -> {
-            try {
-                new Network().postRequest(id);
-                linearTimer.startTimer();
-            } catch (IllegalStateException | IOException e) {
-                Toast.makeText(StatusActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+            if(TextUtils.isEmpty(id) || TextUtils.isEmpty(delay) || TextUtils.isEmpty(amount)){
+                Toast.makeText(this, "Values are empty. Set values first!", Toast.LENGTH_LONG).show();
+            } else {
+            runnable = new Runnable() {
+                int i=0;
+                @Override
+                public void run() {
+                    if(i < Integer.parseInt(amount)){
+                        linearTimer.startTimer();
+                        try {
+                            new Network().postRequest(id);
+                        } catch (IllegalStateException | IOException e) {
+                            Toast.makeText(StatusActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                        i++;
+                    } else {
+                        System.out.println("Still running");
+                    }
+                    handler.postDelayed(this, duration);
+                    zapped = i;
+                }
+            };
+            handler.post(runnable);
+            //runnable.run();
             }
-
         });
 
         settingIcon.setOnClickListener(view -> {
             Intent intent = new Intent(StatusActivity.this, SettingsActivity.class);
             startActivity(intent);
         });
-
     }
 
     @Override
     public void animationComplete() {
         Log.i("Animation", "animationComplete");
+        totalGB.setText(zapped + "GB Zapped");
         linearTimer.resetTimer();
     }
 
@@ -97,6 +123,19 @@ public class StatusActivity extends AppCompatActivity implements LinearTimer.Tim
     public void onTimerReset() {
         timeRemaining.setText(delay+"s");
         startBtn.setEnabled(true);
+    }
+
+    @Override
+    public void onBackPressed() {
+        handler.removeCallbacks(runnable);
+        finish();
+    }
+
+    @Override
+    protected void onPause() {
+        handler.removeCallbacks(runnable);
+        super.onPause();
+
     }
 }
 

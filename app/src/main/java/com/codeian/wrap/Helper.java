@@ -2,6 +2,8 @@ package com.codeian.wrap;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.text.InputFilter;
+import android.text.Spanned;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

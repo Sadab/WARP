@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/rubik"
         android:gravity="center"
-        android:text="100GB Zapped"
+        android:text="0GB Zapped"
         android:layout_marginTop="50dp"
         android:textColor="#E23367"
         android:textSize="32sp"

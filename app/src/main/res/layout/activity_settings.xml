@@ -11,7 +11,7 @@
         android:weightSum="2">
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/backIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -61,8 +61,10 @@
             android:layout_marginEnd="20dp"
             android:background="@drawable/rounded_corner_view"
             android:text=""
+            android:maxLength="2"
+            android:inputType="number"
             android:textCursorDrawable="@null"
-            android:gravity="center"/>
+            android:gravity="center" />
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
@@ -82,6 +84,8 @@
             android:layout_marginEnd="20dp"
             android:background="@drawable/rounded_corner_view"
             android:text=""
+            android:maxLength="2"
+            android:inputType="number"
             android:textCursorDrawable="@null"
             android:gravity="center"/>
 
