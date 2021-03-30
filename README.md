@@ -119,4 +119,4 @@ Project Link: [https://github.com/Sadab/WARP](https://github.com/Sadab/WARP)
 [issues-shield]: https://img.shields.io/github/issues/Sadab/WARP.svg?style=for-the-badge
 [issues-url]: https://github.com/Sadab/WARP/issues
 [license-shield]: https://img.shields.io/github/license/Sadab/WARP.svg?style=for-the-badge
-[license-url]: https://github.com/Sadab/WARP/blob/master/LICENSE.txt
+[license-url]: https://github.com/Sadab/WARP/blob/master/LICENSE
