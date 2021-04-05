@@ -1,6 +1,7 @@
 <p align="center">
   
 [![Contributors][contributors-shield]][contributors-url]
+![GitHub all releases](https://img.shields.io/github/downloads/Sadab/WARP/total?color=brightgreen&style=for-the-badge)
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
